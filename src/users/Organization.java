@@ -2,7 +2,6 @@ package users;
 
 import donations.Entity;
 import donations.RequestDonationList;
-import users.Admin;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,6 +10,8 @@ public class Organization {
     String name;
     private Admin admin;
     private final Set<Entity> entitySet = new HashSet<>();
+    private final Set<Beneficiary> beneficiarySet = new HashSet<>();
+    private final Set<Donor> donorSet = new HashSet<>();
     public final RequestDonationList currentDonations = new RequestDonationList(this);
 
     public void setAdmin(Admin admin) {
@@ -21,33 +22,47 @@ public class Organization {
         return admin;
     }
 
-    public void addEntity() {
-
+    // Add/remove methods
+    public void addEntity(Entity entity) {
+        entitySet.add(entity); // doesn't throw exception on duplicate insert
     }
 
-    public void removeEntity() {
-
+    public void removeEntity(Entity entity) {
+        entitySet.remove(entity);
     }
 
-    public void insertDonor() {
-
+    public void insertDonor(Donor donor) {
+        donorSet.add(donor);
     }
 
-    public void removeDonor() {
-
+    public void removeDonor(Donor donor) {
+        donorSet.remove(donor);
     }
 
-    public void insertBeneficiary() {
-
+    public void insertBeneficiary(Beneficiary beneficiary) {
+        beneficiarySet.add(beneficiary);
     }
 
-    public void removeBeneficiary() {
-
+    public void removeBeneficiary(Beneficiary beneficiary) {
+        beneficiarySet.remove(beneficiary);
     }
 
-    public void listEntities() {}
+    // List methods
+    public void listEntities() {
+        for (Entity entity : entitySet) {
+            System.out.println(entity.toString());
+        }
+    }
 
-    public void listDonors() {}
+    public void listDonors() {
+        for (Donor donor : donorSet) {
+            System.out.println(donor.getName());
+        }
+    }
 
-    public void listBeneficiaries() {}
+    public void listBeneficiaries() {
+        for (Beneficiary beneficiary : beneficiarySet) {
+            System.out.println(beneficiary.getName());
+        }
+    }
 }
