@@ -1,6 +1,7 @@
 import donations.Material;
 import donations.RequestDonation;
 import donations.RequestDonationList;
+import users.Organization;
 
 import java.util.Scanner;
 
@@ -11,11 +12,10 @@ public class Menu {
         String phone = input.next();
         System.out.println(phone);
 
+        Organization org = new Organization();
         Material iron = new Material("iron", "it's iron", 1337);
         RequestDonation rd = new RequestDonation(iron, 128);
-        RequestDonationList rdl = new RequestDonationList();
-        System.out.println(rdl.add(rd));
-        System.out.println(rdl.add(rd));
-        System.out.println(rdl.get(1337));
+        System.out.println(org.currentDonations.add(rd));
+        org.currentDonations.monitor();
     }
 }
