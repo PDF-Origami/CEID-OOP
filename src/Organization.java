@@ -14,6 +14,8 @@ public class Organization {
         return admin;
     }
 
+    public void addEntity() {
 
+    }
 
 }

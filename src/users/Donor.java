@@ -1,6 +1,6 @@
 package users;
 
-class Donator extends User {
+class Donor extends User {
     // Offers offersList;
 
 }
