@@ -3,8 +3,12 @@ package users;
 import donations.Offers;
 import donations.RequestDonation;
 
-class Donor extends User {
+public class Donor extends User {
     Offers offersList;
+
+    public Donor(String name, String phone) {
+        super(name, phone);
+    }
 
     public double add(RequestDonation rd) {
         return offersList.add(rd);
