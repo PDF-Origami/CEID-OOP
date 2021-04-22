@@ -23,4 +23,20 @@ public class RequestDonationList {
             return 0;
         }
     }
+
+    public void remove(RequestDonation rd) {
+
+    }
+
+    public void modify(RequestDonation rd, double newQuantity) {
+
+    }
+
+    public void monitor() {
+
+    }
+
+    public void reset() {
+
+    }
 }
