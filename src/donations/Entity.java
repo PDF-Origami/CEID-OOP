@@ -17,6 +17,7 @@ public abstract class Entity {
 
     public abstract String getDetails();
 
+    @Override
     public String toString() {
         return " ";
     }

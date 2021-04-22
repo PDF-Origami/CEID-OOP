@@ -1,6 +1,6 @@
 package users;
 
-public class User {
-    String name;
-    String phone;
+public abstract class User {
+    protected String name;
+    protected String phone;
 }

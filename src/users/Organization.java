@@ -25,6 +25,29 @@ public class Organization {
 
     }
 
+    public void removeEntity() {
 
+    }
 
+    public void insertDonor() {
+
+    }
+
+    public void removeDonor() {
+
+    }
+
+    public void insertBeneficiary() {
+
+    }
+
+    public void removeBeneficiary() {
+
+    }
+
+    public void listEntities() {}
+
+    public void listDonors() {}
+
+    public void listBeneficiaries() {}
 }
