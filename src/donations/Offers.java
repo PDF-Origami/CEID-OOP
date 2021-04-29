@@ -8,6 +8,9 @@ public class Offers extends RequestDonationList {
     }
 
     public void commit() {
+        for (RequestDonation rdEntity: this.rdEntities) {
+            this.organization.currentDonations.add(rdEntity);
+        }
 
     }
 }

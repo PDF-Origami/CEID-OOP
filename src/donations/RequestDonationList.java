@@ -24,7 +24,6 @@ public class RequestDonationList {
 
     public double add(RequestDonation rd) {
         if (rdEntities.contains(rd)) {
-
             return this.get(rd.entity.id).quantity;
         } else {
             rdEntities.add(rd);
@@ -41,7 +40,9 @@ public class RequestDonationList {
     }
 
     public void monitor() {
-
+        for (RequestDonation rd : rdEntities) {
+            System.out.println(rd.entity.name + " " + rd.quantity);
+        }
     }
 
     public void reset() {
