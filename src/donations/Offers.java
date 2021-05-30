@@ -11,6 +11,5 @@ public class Offers extends RequestDonationList {
         for (RequestDonation rdEntity: this.rdEntities) {
             this.organization.currentDonations.add(rdEntity);
         }
-
     }
 }

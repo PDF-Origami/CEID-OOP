@@ -3,7 +3,7 @@ package donations;
 public abstract class Entity {
     String name;
     String description;
-    int id;
+    public int id;
 
     public Entity(String name, String description, int id) {
         this.name = name;
