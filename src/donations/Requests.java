@@ -9,20 +9,27 @@ public class Requests extends RequestDonationList {
     }
 
     @Override
-    public double add(RequestDonation rd) {
+    public void add(RequestDonation newRequestDonation) {
         // TODO: add checks
-        return super.add(rd);
+        super.add(newRequestDonation);
     }
 
     @Override
-    public void modify(RequestDonation rd, double newQuantity) {
+    public void modify(RequestDonation rd) {
         // TODO: add checks
-        super.modify(rd, newQuantity);
+        super.modify(rd);
     }
 
-    public boolean validRequestDonation() {
-        return true;
+    @Override
+    public void monitor() {
+        if (requestDonations.size() == 0) {
+            System.out.println("No requests to show");
+        } else {
+            int i = 1;
+            for (RequestDonation rd : requestDonations) {
+                System.out.println(i + ". " + rd.toString());
+                i++;
+            }
+        }
     }
-
-    public void commit() {}
 }

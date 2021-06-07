@@ -1,5 +1,7 @@
 package users;
 
+import donations.RequestDonation;
+
 public abstract class User {
     private String name;
     private String phone;
@@ -24,4 +26,7 @@ public abstract class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    @Override
+    public String toString() { return this.getName(); }
 }

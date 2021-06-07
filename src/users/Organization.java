@@ -1,14 +1,11 @@
 package users;
 
 import donations.*;
-
-import java.awt.image.AreaAveragingScaleFilter;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import misc.Utilities;
+import java.util.*;
 
 public class Organization {
-    String name;
+    private String name;
     private Admin admin;
     private final Set<Entity> entitySet = new HashSet<>();
     private final Set<Beneficiary> beneficiarySet = new HashSet<>();
@@ -23,13 +20,41 @@ public class Organization {
         return admin;
     }
 
+    public User getUserByPhone(String phone) {
+        for (Beneficiary beneficiary : beneficiarySet) {
+            if (beneficiary.getPhone().equals(phone)) {
+                return beneficiary;
+            }
+        }
+        for (Donor donor : donorSet) {
+            if (donor.getPhone().equals(phone)) {
+                return donor;
+            }
+        }
+        if (admin.getPhone().equals(phone)) {
+            return admin;
+        }
+        return null;
+    }
+
     // Add/remove methods
     public void addEntity(Entity entity) {
         entitySet.add(entity); // doesn't throw exception on duplicate insert
+        RequestDonation rd = new RequestDonation(entity, 0);
+        currentDonations.add(rd);
     }
 
     public void removeEntity(Entity entity) {
         entitySet.remove(entity);
+    }
+
+    public Entity getEntityByName(String name) {
+        for (Entity entity : entitySet) {
+            if (entity.toString().equals(name)) {
+                return entity;
+            }
+        }
+        return null;
     }
 
     public void insertDonor(Donor donor) {
@@ -84,6 +109,7 @@ public class Organization {
         }
     }
 
+
     public void listDonors() {
         for (Donor donor : donorSet) {
             System.out.println(donor.getName());
@@ -91,8 +117,6 @@ public class Organization {
     }
 
     public void listBeneficiaries() {
-        for (Beneficiary beneficiary : beneficiarySet) {
-            System.out.println(beneficiary.getName());
-        }
+        Utilities.printNumberedList(beneficiarySet);
     }
 }

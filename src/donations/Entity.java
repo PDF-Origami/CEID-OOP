@@ -12,7 +12,7 @@ public abstract class Entity {
     }
 
     public String getEntityInfo() {
-        return " ";
+        return String.format("ID: %d; Name: %s; Description: %s", id, name, description);
     }
 
     public abstract String getDetails();
