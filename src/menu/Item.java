@@ -30,6 +30,10 @@ public class Item {
     }
 
     public boolean executeAction() {
+        if (actionMethodName.equals("")) {
+            return false;
+        }
+
         try {
             Class<?> cls = Class.forName("menu.Executor");
             Method method = cls.getDeclaredMethod(actionMethodName);
